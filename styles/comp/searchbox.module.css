@@ -1,0 +1,23 @@
+#box img{
+    width: 25px;
+    height: 25px;
+    display: block;
+}
+
+#box{
+    display: flex;
+    align-items: center;
+    padding: 0px 10px;
+    border-radius: 10px;
+    width: fit-content;
+    gap: 5px;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-sizing: border-box;
+    height: 50px;
+}
+
+#form{
+    width: 50vw;
+    padding-bottom: 2px;
+    height: 40px;
+}
