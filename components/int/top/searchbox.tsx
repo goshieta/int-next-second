@@ -55,14 +55,30 @@ export default function searchbox(props:props){
     }
 
     return (
-        <form onSubmit={submitEve} id={styles.box}>
-            <button type='button'>
-                <img src={`/searchEngine/${se}.ico`} alt="" id={styles.sefaivcon} />
-            </button>
-            <input type="text" id={styles.form} placeholder={`ヒント: ${tipsArr[Math.floor(Math.random()*tipsArr.length)]}`} value={search} onChange={handleChange} autoComplete="off"/>
-            <button type="submit">
-                <img src="int/search.png" alt="検索" />
-            </button>
-        </form>
+        <div>
+            <form onSubmit={submitEve} id={styles.box}>
+                <button type='button'>
+                    <img src={`/searchEngine/${se}.ico`} alt="" id={styles.sefaivcon} />
+                </button>
+                <input type="text" id={styles.form} placeholder={`ヒント: ${tipsArr[Math.floor(Math.random()*tipsArr.length)]}`} value={search} onChange={handleChange} autoComplete="off"/>
+                <button type="submit">
+                    <img src="int/search.png" alt="検索" />
+                </button>
+            </form>
+            <Suggest word={search}></Suggest>
+        </div>
+    )
+}
+
+type sugProps={
+    word:String,
+}
+
+//検索候補を表示する
+function Suggest(props:sugProps){
+    console.log(props.word)
+
+    return (
+        <div></div>
     )
 }
