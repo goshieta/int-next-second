@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from '../../../styles/comp/searchbox.module.css'
 
 type props={
@@ -54,6 +54,14 @@ export default function searchbox(props:props){
         window.open(newURL,"_blank")
     }
 
+    //サジェストがクリックされたとき
+    function suggestClick(word:String){
+        setSearch("")
+        //検索結果へ送信
+        const newURL=searchEngineUrlJson[String(se)]+word
+        window.open(newURL,"_blank")
+    }
+
     const [suggestList,setSuggestList]=useState<String[]>([])
     //サジェスト用
     useEffect(()=>{
@@ -79,7 +87,7 @@ export default function searchbox(props:props){
                 {
                     suggestList.map((oneElem)=>{
                         return (
-                            <p>{oneElem}</p>
+                            <button type='button' onClick={()=>suggestClick(oneElem)}>{oneElem}</button>
                         )
                     })
                 }

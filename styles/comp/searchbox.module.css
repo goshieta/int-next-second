@@ -42,6 +42,12 @@
   padding: 20px;
   box-sizing: border-box;
 }
-#suggestArea p {
+#suggestArea button {
   padding: 10px 0;
+  display: block;
+  width: 100%;
+  text-align: left;
+}
+#suggestArea button :hover {
+  background-color: rgba(0, 0, 0, 0.7);
 }
