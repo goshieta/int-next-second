@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import styles from '../../../styles/comp/searchbox.module.css'
 
 type props={
@@ -54,8 +54,18 @@ export default function searchbox(props:props){
         window.open(newURL,"_blank")
     }
 
+    const [suggestList,setSuggestList]=useState<String[]>([])
+    //サジェスト用
+    useEffect(()=>{
+        const defaultFunction=async ()=>{
+            const list=await (await JSON.parse(await (await fetch("/api/suggest?word="+search)).text())).wordList.split(",")
+            setSuggestList(list)
+        }
+        defaultFunction()
+    },[search])
+
     return (
-        <div>
+        <div id={styles.topArea}>
             <form onSubmit={submitEve} id={styles.box}>
                 <button type='button'>
                     <img src={`/searchEngine/${se}.ico`} alt="" id={styles.sefaivcon} />
@@ -65,20 +75,15 @@ export default function searchbox(props:props){
                     <img src="int/search.png" alt="検索" />
                 </button>
             </form>
-            <Suggest word={search}></Suggest>
+            <div id={styles.suggestArea} style={{display: suggestList[0]==""? "none":"block"}}>
+                {
+                    suggestList.map((oneElem)=>{
+                        return (
+                            <p>{oneElem}</p>
+                        )
+                    })
+                }
+            </div>
         </div>
-    )
-}
-
-type sugProps={
-    word:String,
-}
-
-//検索候補を表示する
-function Suggest(props:sugProps){
-    console.log(props.word)
-
-    return (
-        <div></div>
     )
 }
