@@ -24,12 +24,12 @@ export default function Home() {
         <title>Inforde Top</title>
         <meta name="description" content="Inforde Topは次世代の検索サイトです。これまでの検索サイトの欠点であったカスタマイズ性などを改善し、あなただけの検索サイトを作ります。" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.png" />
       </Head>
       <div id={styles.top}>
         <div id={styles.icon}>
-          <img src="/favicon.ico" alt="" />
-          <h1>Inforde</h1>
+          <img src="/favicon.png" alt="Inf" />
+          <h1>orde</h1>
         </div>
         <SearchBox searchEngine={settings.searchEngine}></SearchBox>
       </div>
