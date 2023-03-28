@@ -2,6 +2,8 @@ import Head from 'next/head'
 import styles from '@/styles/Home.module.css'
 import SearchBox from '../components/int/top/searchbox'
 import { useEffect, useState } from 'react'
+import WidArea from '@/components/int/bottom/widArea'
+import Middle from '@/components/int/bottom/middle'
 
 
 export default function Home() {
@@ -24,16 +26,20 @@ export default function Home() {
         <title>Inforde Top</title>
         <meta name="description" content="Inforde Topは次世代の検索サイトです。これまでの検索サイトの欠点であったカスタマイズ性などを改善し、あなただけの検索サイトを作ります。" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.png" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <div id={styles.top}>
         <div id={styles.icon}>
-          <img src="/favicon.png" alt="Inf" />
+          <img src="/favicon.ico" alt="Inf" />
           <h1>orde</h1>
         </div>
         <SearchBox searchEngine={settings.searchEngine}></SearchBox>
       </div>
-      <div id={styles.bottom}></div>
+      <div id={styles.bottom}>
+        <WidArea widArr={["Clock"]}></WidArea>
+        <Middle></Middle>
+        <WidArea widArr={[]}></WidArea>
+      </div>
     </div>
   )
 }

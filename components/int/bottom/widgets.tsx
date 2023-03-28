@@ -1,20 +1,25 @@
+import { ReactNode } from "react"
 import styles from "../../../styles/comp/widBasic.module.css"
 
+type widBasicType={
+    title:String
+}
+
 //基本ウィジェット
-export default function Widgets(){
+export default function Widgets(props:widBasicType){
     return (
         <div id={styles.wid}>
-            <WidTitle title="ああ"></WidTitle>
+            <WidTitle>{props.title}</WidTitle>
         </div>
     )
 }
 
 type widTitleType={
-    title:String
+    children:ReactNode
 }
 
 export function WidTitle(props:widTitleType){
     return (
-        <p>{props.title}</p>
+        <p>{props.children}</p>
     )
 }
