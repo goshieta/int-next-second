@@ -32,3 +32,8 @@
   height: 50px;
   box-sizing: border-box;
 }
+
+#bottom {
+  display: flex;
+  justify-content: center;
+}

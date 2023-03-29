@@ -1,3 +1,38 @@
+.Area {
+  width: 25%;
+  max-width: 360px;
+  min-width: 200px;
+}
+.childArea {
+  padding-left: 5px;
+}
+
 #wid {
-  /*据え置き*/
+  width: calc(100% - 20px);
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+  box-sizing: border-box;
+}
+
+.WidTitle {
+  font-size: 17px;
+  margin: 5px 0 !important;
+  width: fit-content;
+  display: block;
+  font-weight: bold;
+  position: relative;
+  border-bottom: 3px solid rgb(0, 153, 25);
+  padding: 2px 7px;
+  padding-right: 20px;
+  z-index: 1;
+}
+.WidTitle::before {
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 20%;
+  height: 3px;
+  content: "";
+  background: #11cc00;
 }

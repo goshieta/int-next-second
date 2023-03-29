@@ -4,6 +4,7 @@ import SearchBox from '../components/int/top/searchbox'
 import { useEffect, useState } from 'react'
 import WidArea from '@/components/int/bottom/widArea'
 import Middle from '@/components/int/bottom/middle'
+import { Clock, News, Trend, Weather } from '@/components/int/bottom/allWid'
 
 
 export default function Home() {
@@ -11,7 +12,10 @@ export default function Home() {
   //設定ファイルを読み込み
   //デフォルトのJson
   const defaultJson={
-    searchEngine:"google"
+    searchEngine:"google",
+    theme:{
+      widgetsBack:["rgba(255, 255, 255, 0.7)","rgba(255, 255, 255, 0.7)"]
+    }
   }
   const [settings,setSettings]=useState(defaultJson)
   useEffect(()=>{
@@ -36,9 +40,15 @@ export default function Home() {
         <SearchBox searchEngine={settings.searchEngine}></SearchBox>
       </div>
       <div id={styles.bottom}>
-        <WidArea widArr={["Clock"]}></WidArea>
+        <WidArea>
+          <Clock theme={settings.theme}></Clock>
+          <Weather theme={settings.theme}></Weather>
+        </WidArea>
         <Middle></Middle>
-        <WidArea widArr={[]}></WidArea>
+        <WidArea>
+          <Trend theme={settings.theme}></Trend>
+          <News theme={settings.theme}></News>
+        </WidArea>
       </div>
     </div>
   )
