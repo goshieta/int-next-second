@@ -1,12 +1,14 @@
 #clockChild {
   display: flex;
+  gap: 10px;
 }
 #clockChild div {
   box-sizing: border-box;
 }
 #clTime {
-  font-size: 25px;
+  font-size: 20px;
   font-weight: bold;
+  z-index: 10;
 }
 #timeArea {
   width: 100px;
@@ -21,4 +23,12 @@
   height: 100px;
   position: absolute;
   display: block;
+}
+
+#dateArea {
+  display: flex;
+  align-items: center;
+}
+#daCenter p {
+  margin: 20px 0;
 }

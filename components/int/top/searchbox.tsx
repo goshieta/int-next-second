@@ -62,9 +62,14 @@ export default function searchbox(props:props){
         window.open(newURL,"_blank")
     }
 
-    const [suggestList,setSuggestList]=useState<String[]>([])
+    const [suggestList,setSuggestList]=useState<String[]>([""])
     //サジェスト用
     useEffect(()=>{
+        if(search==""){
+            //サジェストリストの１つ目が空文字だった場合、サジェストを表示しない仕様のため、空配列ではなく、空文字を入れた配列をセットする。
+            setSuggestList([""])
+            return
+        }
         const defaultFunction=async ()=>{
             const list=await (await JSON.parse(await (await fetch("/api/suggest?word="+search)).text())).wordList.split(",")
             setSuggestList(list)

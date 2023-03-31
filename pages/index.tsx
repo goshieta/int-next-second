@@ -15,7 +15,8 @@ export default function Home() {
     searchEngine:"google",
     theme:{
       widgetsBack:["rgba(255, 255, 255, 0.7)","rgba(255, 255, 255, 0.7)"]
-    }
+    },
+    weatherPoint:"340010"
   }
   const [settings,setSettings]=useState(defaultJson)
   useEffect(()=>{
@@ -42,7 +43,7 @@ export default function Home() {
       <div id={styles.bottom}>
         <WidArea>
           <Clock theme={settings.theme}></Clock>
-          <Weather theme={settings.theme}></Weather>
+          <Weather theme={settings.theme} point={settings.weatherPoint}></Weather>
         </WidArea>
         <Middle></Middle>
         <WidArea>
