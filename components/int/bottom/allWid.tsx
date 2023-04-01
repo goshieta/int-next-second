@@ -69,21 +69,22 @@ type weatherWidType=allWidType&{
 export function Weather(props:weatherWidType){
     const [weatherJson,setWeatherJson]=useState({
         1: {
+            wind:"",
             weather: "",
             maxtemp: 0,
             mintemp: 0,
             chanceOfRain: "",
         },
         2: {
+            wind:"",
             weather: "",
             maxtemp: 0,
             mintemp: 0,
-            chanceOfRain:""
         },
     })
     useEffect(()=>{
         const fetchwj=async ()=>{
-            const returnJson:any=await fetch("/api/gwe?city="+props.point)
+            const returnJson:any=await fetch("/api/gwe?city="+props.point).then(res=>res.json())
             setWeatherJson(returnJson)
         }
         fetchwj()

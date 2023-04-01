@@ -1,3 +1,27 @@
-#parent {
+#flexParent {
   display: flex;
+  gap: 15px;
+}
+#parent {
+  margin: 10px 0;
+}
+
+#imgArea {
+  text-align: center;
+}
+#imgArea img {
+  width: 70px;
+  height: 70px;
+  padding-top: 5px;
+}
+
+#strArea {
+  padding-top: 25px;
+}
+.oneStr {
+  display: flex;
+  gap: 10px;
+}
+.oneStrTitle {
+  color: rgb(255, 38, 38);
 }

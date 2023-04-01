@@ -18,12 +18,14 @@ export default async function getWeather(
       //最終的に帰ってくるJson
       const newMyJson = {
         1: {
+          wind: mjson[0].detail.wind,
           weather: mjson[0].telop,
           maxtemp: mjson[0].temperature.max.celsius,
           mintemp: mjson[0].temperature.min.celsius,
           chanceOfRain: "",
         },
         2: {
+          wind: mjson[1].detail.wind,
           weather: mjson[1].telop,
           maxtemp: mjson[1].temperature.max.celsius,
           mintemp: mjson[1].temperature.min.celsius,
