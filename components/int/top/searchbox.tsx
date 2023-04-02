@@ -92,7 +92,7 @@ export default function searchbox(props:props){
                 {
                     suggestList.map((oneElem)=>{
                         return (
-                            <button type='button' onClick={()=>suggestClick(oneElem)}>{oneElem}</button>
+                            <button type='button' key={oneElem.toString()} onClick={()=>suggestClick(oneElem)}>{oneElem}</button>
                         )
                     })
                 }

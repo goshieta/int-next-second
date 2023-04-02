@@ -5,11 +5,15 @@ export default async function getWeather(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
+  let weatherPoint = "";
   const weatherJson = await fetch(
     "https://weather.tsukumijima.net/api/forecast/city/" + req.query.city
   )
     .then((res) => res.json())
-    .then((gjson) => gjson.forecasts)
+    .then((gjson) => {
+      weatherPoint = gjson.location.city;
+      return gjson.forecasts;
+    })
     .then((mjson) => {
       delete mjson[2];
       return mjson;
@@ -17,6 +21,7 @@ export default async function getWeather(
     .then((mjson) => {
       //最終的に帰ってくるJson
       const newMyJson = {
+        location: weatherPoint,
         1: {
           wind: mjson[0].detail.wind,
           weather: mjson[0].telop,

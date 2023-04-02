@@ -3,6 +3,19 @@
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
+  position: relative;
+  z-index: 0;
+}
+#parent::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  background: inherit;
+  filter: brightness(80%);
+  z-index: -1;
 }
 
 #top {

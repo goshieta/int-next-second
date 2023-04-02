@@ -68,15 +68,16 @@ type weatherWidType=allWidType&{
 
 export function Weather(props:weatherWidType){
     const [weatherJson,setWeatherJson]=useState({
+        location:"--",
         1: {
-            wind:"",
+            wind:"--",
             weather: "",
             maxtemp: 0,
             mintemp: 0,
-            chanceOfRain: "",
+            chanceOfRain: "--",
         },
         2: {
-            wind:"",
+            wind:"--",
             weather: "",
             maxtemp: 0,
             mintemp: 0,
@@ -94,7 +95,7 @@ export function Weather(props:weatherWidType){
     tommorow.setDate(today.getDate()+1)
 
     return (
-        <WidBasic title="天気" theme={props.theme}>
+        <WidBasic title={`${weatherJson.location}の天気`} theme={props.theme}>
             <OneWeather date={`${today.getMonth()}月${today.getDate()}日`} weatherJson={weatherJson[1]}></OneWeather>
             <OneWeather date={`${tommorow.getMonth()}月${tommorow.getDate()}日`} weatherJson={weatherJson[2]}></OneWeather>
         </WidBasic>

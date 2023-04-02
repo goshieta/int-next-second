@@ -1,10 +1,50 @@
 #middle {
   width: 40%;
   margin: 10px 20px;
-  padding: 10px;
-  max-width: 650px;
-  min-width: 400px;
-  background-color: rgba(255, 255, 255, 0.7);
+  padding: 20px;
+  max-width: 450px;
+  min-width: 300px;
   border-radius: 5px;
   height: fit-content;
+}
+
+#mySiteArea {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0px;
+  justify-content: center;
+}
+.oneMySite {
+  color: black;
+  display: block;
+  text-decoration: none;
+  text-align: center;
+  width: 90px;
+  margin: 10px 0px;
+  border-radius: 5px;
+  padding: 5px;
+  height: fit-content;
+}
+.oneMySite:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.ssImgArea {
+  background-color: white;
+  width: 30px;
+  height: 30px;
+  padding: 5px;
+  border-radius: 5px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+.ssImgArea img {
+  margin: 5px;
+  width: 20px;
+  height: 20px;
+}
+
+.ssStringArea p {
+  color: white;
+  font-size: 13px;
+  font-family: Roboto, "Segoe UI", Arial, Meiryo, sans-serif;
 }

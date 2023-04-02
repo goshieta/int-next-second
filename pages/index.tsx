@@ -14,9 +14,39 @@ export default function Home() {
   const defaultJson={
     searchEngine:"google",
     theme:{
-      widgetsBack:["rgba(255, 255, 255, 0.7)","rgba(255, 255, 255, 0.7)"]
+      widgetsBack:["rgba(255, 255, 255, 0.8)","rgba(255, 255, 255, 0.8)"],
+      middleBack:["rgba(255, 255, 255, 0)","rgba(255, 255, 255, 0)"]
     },
-    weatherPoint:"340010"
+    weatherPoint:"340010",
+    mySite:[{
+      link:"https://maps.google.com",
+      imgLink:"https://www.google.com/images/branding/product/ico/maps15_bnuw3a_32dp.ico",
+      title:"Google map"
+    },{
+      link:"https://amazon.co.jp",
+      imgLink:"https://upload.wikimedia.org/wikipedia/commons/d/de/Amazon_icon.png",
+      title:"amazon"
+    },{
+      link:"https://youtube.com",
+      imgLink:"https://play-lh.googleusercontent.com/lMoItBgdPPVDJsNOVtP26EKHePkwBg-PkuY9NOrc-fumRtTFP4XhpUNk_22syN4Datc=s96",
+      title:"Youtube"
+    },{
+      link:"https://drive.google.com/drive/my-drive",
+      imgLink:"https://ssl.gstatic.com/images/branding/product/1x/drive_2020q4_32dp.png",
+      title:"Google Drive"
+    },{
+      link:"https://www.office.com/",
+      imgLink:"https://res.cdn.office.net/officehub/images/content/images/favicon_m365-67350a08e8.ico",
+      title:"Office 365"
+    },{
+      link:"https://www.deepl.com/ja/translator",
+      imgLink:"https://static.deepl.com/img/logo/DeepL_Logo_darkBlue_v2.svg",
+      title:"DeepL翻訳"
+    },{
+      link:"https://www.jtb.co.jp/",
+      imgLink:"https://play-lh.googleusercontent.com/isHtY3jIseSHCsWHp-HxTqSLTQgjDkoewEcyt4_SoSbMcHtz24m98J1KEGD2bzpk5QY",
+      title:"JTB"
+    }]
   }
   const [settings,setSettings]=useState(defaultJson)
   useEffect(()=>{
@@ -26,7 +56,7 @@ export default function Home() {
   },[])
 
   return (
-    <div style={{backgroundImage:`url("/back/1.jpg")`}} id={styles.parent}>
+    <div style={{backgroundImage:`url("/back/12.jpg")`}} id={styles.parent}>
       <Head>
         <title>Inforde Top</title>
         <meta name="description" content="Inforde Topは次世代の検索サイトです。これまでの検索サイトの欠点であったカスタマイズ性などを改善し、あなただけの検索サイトを作ります。" />
@@ -45,7 +75,7 @@ export default function Home() {
           <Clock theme={settings.theme}></Clock>
           <Weather theme={settings.theme} point={settings.weatherPoint}></Weather>
         </WidArea>
-        <Middle></Middle>
+        <Middle back={settings.theme.middleBack} mySite={settings.mySite}></Middle>
         <WidArea>
           <Trend theme={settings.theme}></Trend>
           <News theme={settings.theme}></News>

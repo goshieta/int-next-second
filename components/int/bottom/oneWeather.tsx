@@ -35,7 +35,7 @@ export default function OneWeather(props:owtype){
                         <p className={styles.oneStrTitle}>風</p>
                         <p className={styles.oneStrBody}>{props.weatherJson.wind.replace(/．/g,".").replace(/\s+/g,' ').replace(/(?:海上)(.*)/,"").replace("海上","")}</p>
                     </div>
-                    <div className={styles.oneStr}>
+                    <div className={styles.oneStr} style={{display: props.weatherJson.maxtemp==null? "none":"flex"}}>
                         <p className={styles.oneStrTitle}>最高気温</p>
                         <p className={styles.oneStrBody}>{String(props.weatherJson.maxtemp)}度</p>
                     </div>
