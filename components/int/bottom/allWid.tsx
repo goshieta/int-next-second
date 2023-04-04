@@ -103,8 +103,20 @@ export function Weather(props:weatherWidType){
 }
 
 export function Trend(props:allWidType){
+    const [trendArr,setTrendArr]=useState<String[]>(["--"])
+
+    useEffect(()=>{
+        fetch("/api/trend").then(res=>res.json()).then(json=>{
+            setTrendArr(json.data)
+        })
+    },[])
+
     return (
-        <WidBasic title="トレンド" theme={props.theme}>test</WidBasic>
+        <WidBasic title="トレンド" theme={props.theme}>
+            {
+                trendArr.map(onePhrase=>(<a href={`https://www.google.com/search?q=${onePhrase}`} rel="nofollow noopener noreferrer" target="_blank" className={styles.trendA}>{onePhrase}</a>))
+            }
+        </WidBasic>
     )
 }
 

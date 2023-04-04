@@ -32,3 +32,14 @@
 #daCenter p {
   margin: 20px 0;
 }
+
+.trendA {
+  display: block;
+  color: black;
+  text-decoration: none;
+  margin: 5px 0;
+}
+.trendA:hover {
+  color: #229e37;
+  text-decoration: underline;
+}
