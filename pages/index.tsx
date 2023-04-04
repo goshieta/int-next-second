@@ -37,7 +37,7 @@ export default function Home() {
     },{
       link:"https://www.office.com/",
       imgLink:"https://res.cdn.office.net/officehub/images/content/images/favicon_m365-67350a08e8.ico",
-      title:"Office 365"
+      title:"Microsoft 365"
     },{
       link:"https://www.deepl.com/ja/translator",
       imgLink:"https://static.deepl.com/img/logo/DeepL_Logo_darkBlue_v2.svg",
