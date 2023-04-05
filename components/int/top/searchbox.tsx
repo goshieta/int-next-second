@@ -85,7 +85,7 @@ export default function searchbox(props:props){
                 </button>
                 <input type="text" id={styles.form} placeholder={`ヒント: ${tipsArr[Math.floor(Math.random()*tipsArr.length)]}`} value={search} onChange={handleChange} autoComplete="off"/>
                 <button type="submit">
-                    <img src="int/search.png" alt="検索" />
+                    <img src="int/search.svg" alt="検索" />
                 </button>
             </form>
             <div id={styles.suggestArea} style={{display: suggestList[0]==""? "none":"block"}}>

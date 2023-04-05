@@ -36,3 +36,11 @@
   content: "";
   background: #11cc00;
 }
+
+#titleArea {
+  display: flex;
+  align-items: center;
+}
+#topSide {
+  margin-left: auto;
+}

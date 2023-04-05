@@ -95,7 +95,7 @@ export function Weather(props:weatherWidType){
     tommorow.setDate(today.getDate()+1)
 
     return (
-        <WidBasic title={`${weatherJson.location}の天気`} theme={props.theme}>
+        <WidBasic title={`${weatherJson.location}の天気`} theme={props.theme} topSide={(<a onClick={()=>{alert("まだ実装されていないボタンを押すな。")}}>地点を変更</a>)}>
             <OneWeather date={`${today.getMonth()}月${today.getDate()}日`} weatherJson={weatherJson[1]}></OneWeather>
             <OneWeather date={`${tommorow.getMonth()}月${tommorow.getDate()}日`} weatherJson={weatherJson[2]}></OneWeather>
         </WidBasic>
@@ -143,17 +143,36 @@ export function News(props:newsType){
     },[])
 
     useEffect(()=>{
-        setTimeout(()=>{
+        const interval=setInterval(()=>{
             console.log("ok")
             let nextNum=nowNewsNum+1
             if(nextNum==allNews.length)nextNum=0
             setNowNewsNum(nextNum)
         },10000)
+        return ()=>clearInterval(interval)
     },[nowNewsNum,allNews])
 
+    const topSideButton=(
+        <div id={styles.tsButton}>
+            <button className={styles.newsButton} onClick={()=>{
+                let nextNum=nowNewsNum-1
+                if(nextNum==-1)nextNum=allNews.length-1
+                setNowNewsNum(nextNum)
+            }}>
+                <img src="/int/back.svg" alt="戻る"/>
+            </button>
+            <button className={styles.newsButton} onClick={()=>{
+                let nextNum=nowNewsNum+1
+                if(nextNum==allNews.length)nextNum=0
+                setNowNewsNum(nextNum)
+            }}>
+                <img src="/int/forward.svg" alt="進む"/>
+            </button>
+        </div>
+    )
 
     return (
-        <WidBasic title={allNews[nowNewsNum].title} theme={props.theme}>
+        <WidBasic title={allNews[nowNewsNum].title} theme={props.theme} topSide={topSideButton}>
             <div id={styles.newsArea}>
                 {
                     allNews[nowNewsNum].body.map(oneElem=>{

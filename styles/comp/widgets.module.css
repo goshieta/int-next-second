@@ -61,3 +61,25 @@
   margin: 5px 0;
   position: relative;
 }
+
+#tsButton {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+.newsButton {
+  background-color: rgba(128, 128, 128, 0.2);
+  padding: 5px;
+  border-radius: 50%;
+}
+.newsButton:hover {
+  background-color: rgba(128, 128, 128, 0.4);
+}
+.newsButton:active {
+  background-color: rgba(128, 128, 128, 0.6);
+}
+.newsButton img {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
