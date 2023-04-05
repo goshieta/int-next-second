@@ -120,8 +120,49 @@ export function Trend(props:allWidType){
     )
 }
 
-export function News(props:allWidType){
+type newsType=allWidType&{
+    src:String[][]
+}
+
+export function News(props:newsType){
+    const [allNews,setAllNews]=useState([{
+        title:"ニュース",
+        body:[{title:"--",link:""}]
+    }])
+    const [nowNewsNum,setNowNewsNum]=useState(0)
+
+    useEffect(()=>{
+        const fetchNews=async()=>{
+            const srcStr=props.src.map(val=>val.join("-")).join(",")
+            await fetch(`/api/news?src=${srcStr}`)
+                .then((res)=>res.json())
+                .then(json=>json.list)
+                .then(list=>{setAllNews(list)})
+        }
+        fetchNews()
+    },[])
+
+    useEffect(()=>{
+        setTimeout(()=>{
+            console.log("ok")
+            let nextNum=nowNewsNum+1
+            if(nextNum==allNews.length)nextNum=0
+            setNowNewsNum(nextNum)
+        },10000)
+    },[nowNewsNum,allNews])
+
+
     return (
-        <WidBasic title="ニュース" theme={props.theme}>test</WidBasic>
+        <WidBasic title={allNews[nowNewsNum].title} theme={props.theme}>
+            <div id={styles.newsArea}>
+                {
+                    allNews[nowNewsNum].body.map(oneElem=>{
+                        return (
+                            <a href={oneElem.link} target="_blank" rel="noopener noreferrer" key={oneElem.link} className={styles.newsA} title={oneElem.title}>{oneElem.title}</a>
+                        )
+                    })
+                }
+            </div>
+        </WidBasic>
     )
 }

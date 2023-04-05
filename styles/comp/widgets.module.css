@@ -43,3 +43,21 @@
   color: #229e37;
   text-decoration: underline;
 }
+
+.newsA {
+  display: block;
+  text-decoration: none;
+  color: black;
+  white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
+  margin: 10px 0;
+  text-overflow: ellipsis;
+}
+.newsA:hover {
+  color: #229e37;
+}
+#newsArea {
+  margin: 5px 0;
+  position: relative;
+}

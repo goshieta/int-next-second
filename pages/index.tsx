@@ -46,7 +46,8 @@ export default function Home() {
       link:"https://www.jtb.co.jp/",
       imgLink:"https://play-lh.googleusercontent.com/isHtY3jIseSHCsWHp-HxTqSLTQgjDkoewEcyt4_SoSbMcHtz24m98J1KEGD2bzpk5QY",
       title:"JTB"
-    }]
+    }],
+    newsSrc:[["nikkei","news"],["yomiuri","national"],["yomiuri","politics"],["yomiuri","world"],["yomiuri","sports"],["trafficnews","top"]]
   }
   const [settings,setSettings]=useState(defaultJson)
   useEffect(()=>{
@@ -78,7 +79,7 @@ export default function Home() {
         <Middle back={settings.theme.middleBack} mySite={settings.mySite}></Middle>
         <WidArea>
           <Trend theme={settings.theme}></Trend>
-          <News theme={settings.theme}></News>
+          <News theme={settings.theme} src={settings.newsSrc}></News>
         </WidArea>
       </div>
     </div>

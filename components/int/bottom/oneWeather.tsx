@@ -21,7 +21,6 @@ export default function OneWeather(props:owtype){
         }
     })
     weatherString=weatherString.substring(0, 2)
-    console.log(props.weatherJson)
     
     return (
         <div id={styles.parent}>
