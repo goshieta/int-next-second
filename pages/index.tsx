@@ -46,6 +46,22 @@ export default function Home() {
       link:"https://www.jtb.co.jp/",
       imgLink:"https://play-lh.googleusercontent.com/isHtY3jIseSHCsWHp-HxTqSLTQgjDkoewEcyt4_SoSbMcHtz24m98J1KEGD2bzpk5QY",
       title:"JTB"
+    },{
+      link:"https://mail.google.com/",
+      imgLink:"https://ssl.gstatic.com/ui/v1/icons/mail/rfr/gmail.ico",
+      title:"Gmail"
+    },{
+      link:"https://www.canva.com/",
+      imgLink:"https://static.canva.com/static/images/favicon-1.ico",
+      title:"Canva"
+    },{
+      link:"https://tocaly.com/",
+      imgLink:"https://marketplacecontent.zoom.us/%2FM6sl8JOCTmqokExRFYODKg%2F7Rv0GMlZQhOf--R91hiA0w%2Fapp%2FhHuWlu1ZQymGxK_iQ1vslw%2FmdQUUL7PTJKlikT4bVn__Q.png",
+      title:"Tocaly"
+    },{
+      link:"https://www.w3schools.com/",
+      imgLink:"https://www.w3schools.com/favicon.ico",
+      title:"W3Schools"
     }],
     newsSrc:[["nikkei","news"],["yomiuri","national"],["yomiuri","politics"],["yomiuri","world"],["yomiuri","sports"],["trafficnews","top"]]
   }
