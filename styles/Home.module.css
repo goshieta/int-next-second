@@ -39,13 +39,22 @@
 }
 
 #icon h1 {
-  padding-right: 10px;
-  font-size: 25px;
+  font-size: 30px;
   color: white;
   font-family: "游明朝", YuMincho, "Hiragino Mincho ProN", "HGS明朝E",
     "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif;
   font-weight: normal;
+  line-height: 30px;
 }
+#sitetitleArea {
+  padding-left: 10px;
+  text-align: center;
+}
+.Furigana {
+  color: white;
+  font-size: 12px;
+}
+
 #icon {
   display: flex;
   align-items: center;

@@ -83,7 +83,10 @@ export default function Home() {
       <div id={styles.top}>
         <div id={styles.icon}>
           <img src="/favicon.svg" alt="icon" />
-          <h1>峡緑</h1>
+          <div id={styles.sitetitleArea}>
+            <p className={styles.Furigana}>KyouRyoku</p>
+            <h1>峡緑</h1>
+          </div>
         </div>
         <SearchBox searchEngine={settings.searchEngine}></SearchBox>
       </div>
