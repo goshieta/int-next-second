@@ -38,7 +38,7 @@ export default async function getNews(
               link: oneItem.getAttribute("rdf:about"),
             };
           });
-          bodyList.length = 6;
+          bodyList.length = 5;
           return {
             title: title,
             body: bodyList,

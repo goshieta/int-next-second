@@ -1,3 +1,4 @@
+import { ReactNode } from "react"
 import styles from "../../../styles/comp/middle.module.css"
 
 type middleType={
@@ -15,6 +16,18 @@ export default function Middle(props:middleType){
             <div id={styles.mySiteArea}>
                 {
                     props.mySite.map(mone=>(<SiteShortcut key={mone.title.toString()} link={mone.link} imgLink={mone.imgLink} title={mone.title} ></SiteShortcut>))
+                }
+                {
+                    //左寄せするためのダミーコンテントの配置
+                    (()=>{
+                        let returnElem:ReactNode[]=[]
+                        for(let i=0;i<4-props.mySite.length%4;i++){
+                            returnElem.push(
+                                <a className={styles.damyContent}></a>
+                            )
+                        }
+                        return <>{returnElem.map((oe)=>{return oe})}</>
+                    })()
                 }
             </div>
         </div>

@@ -48,3 +48,10 @@
   font-size: 13px;
   font-family: Roboto, "Segoe UI", Arial, Meiryo, sans-serif;
 }
+
+/*ダミーコンテンツ用*/
+.damyContent {
+  width: 90px;
+  padding: 5px;
+  margin: 10px 0;
+}

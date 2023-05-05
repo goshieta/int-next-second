@@ -44,7 +44,7 @@ export default function Home() {
       title:"DeepL翻訳"
     },{
       link:"https://www.jtb.co.jp/",
-      imgLink:"https://play-lh.googleusercontent.com/isHtY3jIseSHCsWHp-HxTqSLTQgjDkoewEcyt4_SoSbMcHtz24m98J1KEGD2bzpk5QY",
+      imgLink:"https://www.jtb.co.jp/smartphone/images/icon180.png",
       title:"JTB"
     },{
       link:"https://mail.google.com/",
@@ -75,15 +75,15 @@ export default function Home() {
   return (
     <div style={{backgroundImage:`url("/back/12.jpg")`}} id={styles.parent}>
       <Head>
-        <title>Inforde Top</title>
-        <meta name="description" content="Inforde Topは次世代の検索サイトです。これまでの検索サイトの欠点であったカスタマイズ性などを改善し、あなただけの検索サイトを作ります。" />
+        <title>峡緑 | KyouRyoku portal</title>
+        <meta name="description" content="峡緑(きょうりょく)ポータルは次世代の検索サイトです。これまでの検索サイトの欠点であったカスタマイズ性などを改善し、あなただけの検索サイトを作ります。" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div id={styles.top}>
         <div id={styles.icon}>
-          <img src="/favicon.ico" alt="Inf" />
-          <h1>orde</h1>
+          <img src="/favicon.svg" alt="icon" />
+          <h1>峡緑</h1>
         </div>
         <SearchBox searchEngine={settings.searchEngine}></SearchBox>
       </div>

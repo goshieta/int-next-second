@@ -11,6 +11,6 @@ export default async function trend(req: NextApiRequest, res: NextApiResponse) {
       return xml.querySelectorAll("title").map((oEl) => oEl.innerHTML);
     });
   dataArr.splice(0, 1);
-  dataArr.length = 5;
+  dataArr.length = 4;
   res.status(200).json({ data: dataArr });
 }
