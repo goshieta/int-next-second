@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react'
 import WidArea from '@/components/int/bottom/widArea'
 import Middle from '@/components/int/bottom/middle'
 import { Clock, News, Trend, Weather } from '@/components/int/bottom/allWid'
+import Settings from '@/components/int/bottom/settings'
 
 
 export default function Home() {
@@ -51,6 +52,10 @@ export default function Home() {
       imgLink:"https://ssl.gstatic.com/ui/v1/icons/mail/rfr/gmail.ico",
       title:"Gmail"
     },{
+      link:"https://chat.openai.com/",
+      imgLink:"https://chat.openai.com/apple-touch-icon.png",
+      title:"ChatGPT"
+    },{
       link:"https://www.canva.com/",
       imgLink:"https://static.canva.com/static/images/favicon-1.ico",
       title:"Canva"
@@ -58,10 +63,6 @@ export default function Home() {
       link:"https://tocaly.com/",
       imgLink:"https://marketplacecontent.zoom.us/%2FM6sl8JOCTmqokExRFYODKg%2F7Rv0GMlZQhOf--R91hiA0w%2Fapp%2FhHuWlu1ZQymGxK_iQ1vslw%2FmdQUUL7PTJKlikT4bVn__Q.png",
       title:"Tocaly"
-    },{
-      link:"https://www.w3schools.com/",
-      imgLink:"https://www.w3schools.com/favicon.ico",
-      title:"W3Schools"
     }],
     newsSrc:[["nikkei","news"],["yomiuri","national"],["yomiuri","politics"],["yomiuri","world"],["yomiuri","sports"],["trafficnews","top"]]
   }
@@ -75,7 +76,7 @@ export default function Home() {
   return (
     <div style={{backgroundImage:`url("/back/12.jpg")`}} id={styles.parent}>
       <Head>
-        <title>峡緑 | KyouRyoku portal</title>
+        <title>峡緑 | KyouRyoku Portal</title>
         <meta name="description" content="峡緑(きょうりょく)ポータルは次世代の検索サイトです。これまでの検索サイトの欠点であったカスタマイズ性などを改善し、あなただけの検索サイトを作ります。" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
@@ -101,6 +102,8 @@ export default function Home() {
           <News theme={settings.theme} src={settings.newsSrc}></News>
         </WidArea>
       </div>
+      {/*設定の記述*/}
+      <Settings></Settings>
     </div>
   )
 }
