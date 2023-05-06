@@ -1,33 +1,20 @@
 #clockChild {
-  display: flex;
-  gap: 10px;
+  text-align: center;
+  padding: 10px 0;
 }
 #clockChild div {
   box-sizing: border-box;
 }
 #clTime {
-  font-size: 20px;
+  font-size: 25px;
+  margin: 5px 0;
   font-weight: bold;
-  z-index: 10;
-}
-#timeArea {
-  width: 100px;
-  height: 100px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 10px;
-}
-#timeArea canvas {
-  width: 100px;
-  height: 100px;
-  position: absolute;
-  display: block;
 }
 
 #dateArea {
   display: flex;
-  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 #daCenter p {
   margin: 20px 0;

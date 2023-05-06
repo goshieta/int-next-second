@@ -2,7 +2,7 @@ import { ReactNode } from "react"
 import styles from "../../../styles/comp/widBasic.module.css"
 
 type widBasicType={
-    title:String
+    title?:String
     theme:{ widgetsBack: string[]; }
     children:ReactNode,
     topSide?:ReactNode
@@ -27,6 +27,6 @@ type widTitleType={
 
 export function WidTitle(props:widTitleType){
     return (
-        <p className={styles.WidTitle}>{props.children}</p>
+        <p className={styles.WidTitle} style={{display: props.children==undefined? "none":"block"}}>{props.children}</p>
     )
 }
