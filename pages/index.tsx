@@ -93,7 +93,7 @@ export default function Home() {
         </div>
         <SearchBox searchEngine={settings.searchEngine}></SearchBox>
         <div id={styles.buttonArea}>
-          <button>
+          <button onClick={()=>{setsettState("top")}}>
             <img src="/icon/settings.svg" alt="設定" />
           </button>
           <button>
@@ -116,7 +116,7 @@ export default function Home() {
         </WidArea>
       </div>
       {/*設定の記述*/}
-      <Settings state={settState}></Settings>
+      <Settings state={settState} changeSetState={(newState)=>{setsettState(newState)}}></Settings>
     </div>
   )
 }

@@ -1,0 +1,59 @@
+/*設定の記述*/
+#backShadow {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 0px;
+  left: 0px;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#settingWindow {
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+/*トップバーのcssの記述*/
+#bar {
+  display: flex;
+  position: relative;
+  align-items: center;
+  gap: 20px;
+}
+#applybuttonArea {
+  right: 0px;
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin: 0 0 0 auto;
+}
+#applybuttonArea input[type="button"] {
+  font-size: 17px;
+  color: white;
+  border-radius: 3px;
+  padding: 5px 10px;
+}
+#cancelB {
+  background-color: rgb(16, 173, 16);
+}
+#cancelB:active {
+  background-color: rgb(12, 144, 12);
+}
+#applyB {
+  background-color: rgb(226, 68, 68);
+}
+#applyB:active {
+  background-color: rgb(175, 43, 43);
+}
+
+/*サイドバー*/
+
+/*bodyの内容*/
+#body {
+  padding-top: 5px;
+  display: flex;
+}
