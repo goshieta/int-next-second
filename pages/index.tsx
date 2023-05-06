@@ -73,6 +73,8 @@ export default function Home() {
     console.log(settings)
   },[])
 
+  const [settState,setsettState]=useState<String|undefined>(undefined)
+
   return (
     <div style={{backgroundImage:`url("/back/12.jpg")`}} id={styles.parent}>
       <Head>
@@ -90,6 +92,17 @@ export default function Home() {
           </div>
         </div>
         <SearchBox searchEngine={settings.searchEngine}></SearchBox>
+        <div id={styles.buttonArea}>
+          <button>
+            <img src="/icon/settings.svg" alt="設定" />
+          </button>
+          <button>
+            <img src="/icon/info.svg" alt="アバウト" />
+          </button>
+          <button>
+            <img src="/icon/help.svg" alt="ヘルプ" />
+          </button>
+        </div>
       </div>
       <div id={styles.bottom}>
         <WidArea>
@@ -103,7 +116,7 @@ export default function Home() {
         </WidArea>
       </div>
       {/*設定の記述*/}
-      <Settings></Settings>
+      <Settings state={settState}></Settings>
     </div>
   )
 }
