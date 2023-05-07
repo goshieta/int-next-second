@@ -92,6 +92,9 @@
 #setDisplay {
   width: 400px;
 }
+.settingOneTitle {
+  font-weight: bold;
+}
 
 /*トップ*/
 #topDesc p {
@@ -103,4 +106,12 @@
   position: absolute;
   left: 0px;
   top: 0px;
+}
+
+/*検索*/
+.oneSettingState {
+  background-color: rgb(222, 222, 255);
+  border-radius: 5px;
+  padding: 10px;
+  margin: 5px 0;
 }

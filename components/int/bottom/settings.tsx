@@ -1,11 +1,33 @@
-import { ReactNode } from "react"
+import { ReactNode , useState} from "react"
 import styles from "../../../styles/comp/setting.module.css"
 
 type setPropsType={
     state:String|undefined,
     changeSetState:(newState:String|undefined)=>void,
-    settingJson:Object
+    settingJson:{
+        theme:{
+            widgetsBack:String[],
+            middleBack:String[]
+        },
+        search:{
+            engine:String
+        },
+        weather:{
+            point:String,
+        },
+        news:{
+            src:String[][]
+        },
+        mySite:{
+            array:{
+                link:String,
+                imgLink:String,
+                title:String
+            }[]
+        }
+    }
 }
+
 
 export default function Settings(props:setPropsType){
     const sideBarInfo=[
@@ -29,6 +51,10 @@ export default function Settings(props:setPropsType){
             name:"マイサイト"
         }
     ]
+
+    const [settingJson,setSettingJson]=useState(props.settingJson)
+
+    const searchEngineList=["amazon","google","yahoo","bing","duckduckgo","ask","baidu","ecosia","wolframalpha","youtube"]
 
     return (
         <div style={{display: props.state==undefined? "none":"flex"}} id={styles.backShadow}>
@@ -62,7 +88,27 @@ export default function Settings(props:setPropsType){
                             </div>
                         </OneSettingPage>
                         <OneSettingPage title="theme" nowSetState={props.state}>テーマ</OneSettingPage>
-                        <OneSettingPage title="search" nowSetState={props.state}>検索</OneSettingPage>
+                        <OneSettingPage title="search" nowSetState={props.state}>
+                            <h3>検索の設定</h3>
+                            <div className={styles.oneSettingState}>
+                                <SettingOneTitle>検索エンジン</SettingOneTitle>
+                                <form action="">
+                                    {
+                                        //検索エンジンを選択するラジオボタンを作成
+                                        searchEngineList.map((item,index)=>{
+                                            return <div key={index}>
+                                                <input type="radio" name="searchEngine" value={item} checked={()=>{
+                                                    let newSettingJson=settingJson
+                                                    newSettingJson.search.engine=item
+                                                    setSettingJson(newSettingJson)
+                                                    }} />
+                                                <label>{item}</label>
+                                            </div>
+                                        })
+                                    }
+                                </form>
+                            </div>
+                        </OneSettingPage>
                         <OneSettingPage title="weather" nowSetState={props.state}>天気</OneSettingPage>
                         <OneSettingPage title="news" nowSetState={props.state}>ニュース</OneSettingPage>
                         <OneSettingPage title="mySite" nowSetState={props.state}>マイサイト</OneSettingPage>
@@ -93,5 +139,14 @@ type ospPropsType={
 function OneSettingPage(props:ospPropsType){
     return (
         <div style={{display: props.nowSetState==props.title? "block":"none"}}>{props.children}</div>
+    )
+}
+
+type sotType={
+    children:ReactNode,
+}
+function SettingOneTitle(props:sotType){
+    return (
+        <p className={styles.settingOneTitle}>{props.children}</p>
     )
 }
