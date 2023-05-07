@@ -91,7 +91,7 @@ export default function Home() {
             <h1>峡緑</h1>
           </div>
         </div>
-        <SearchBox searchEngine={settings.searchEngine}></SearchBox>
+        <SearchBox searchEngine={settings.searchEngine} changeSearchEngine={()=>{setsettState("search")}}></SearchBox>
         <div id={styles.buttonArea}>
           <button onClick={()=>{setsettState("top")}}>
             <img src="/icon/settings.svg" alt="設定" />
@@ -107,7 +107,7 @@ export default function Home() {
       <div id={styles.bottom}>
         <WidArea>
           <Clock theme={settings.theme}></Clock>
-          <Weather theme={settings.theme} point={settings.weatherPoint}></Weather>
+          <Weather theme={settings.theme} point={settings.weatherPoint} weatherSet={()=>{setsettState('weather')}}></Weather>
         </WidArea>
         <Middle back={settings.theme.middleBack} mySite={settings.mySite}></Middle>
         <WidArea>

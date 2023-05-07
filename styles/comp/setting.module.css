@@ -15,6 +15,17 @@
   background-color: white;
   border-radius: 5px;
   padding: 10px;
+  animation: windowShowAnimation 0.2s;
+}
+@keyframes windowShowAnimation {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 /*トップバーのcssの記述*/

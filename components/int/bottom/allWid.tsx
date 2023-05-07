@@ -33,7 +33,8 @@ export function Clock(props:allWidType){
 }
 
 type weatherWidType=allWidType&{
-    point:String
+    point:String,
+    weatherSet:()=>void,
 }
 
 export function Weather(props:weatherWidType){
@@ -65,7 +66,7 @@ export function Weather(props:weatherWidType){
     tommorow.setDate(today.getDate()+1)
 
     return (
-        <WidBasic title={`${weatherJson.location}の天気`} theme={props.theme} topSide={(<a onClick={()=>{alert("まだ実装されていないボタンを押すな。")}}>地点を変更</a>)}>
+        <WidBasic title={`${weatherJson.location}の天気`} theme={props.theme} topSide={(<a onClick={()=>{props.weatherSet()}} style={{color:"blue",cursor:"pointer"}}>地点を変更</a>)}>
             <OneWeather date={`${today.getMonth()}月${today.getDate()}日`} weatherJson={weatherJson[1]}></OneWeather>
             <OneWeather date={`${tommorow.getMonth()}月${tommorow.getDate()}日`} weatherJson={weatherJson[2]}></OneWeather>
         </WidBasic>
@@ -114,7 +115,6 @@ export function News(props:newsType){
 
     useEffect(()=>{
         const interval=setInterval(()=>{
-            console.log("ok")
             let nextNum=nowNewsNum+1
             if(nextNum==allNews.length)nextNum=0
             setNowNewsNum(nextNum)

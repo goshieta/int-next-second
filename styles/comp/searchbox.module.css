@@ -28,6 +28,9 @@
   height: 40px;
   padding-left: 5px;
 }
+#form::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
 #form::placeholder {
   color: rgb(73, 73, 73);
 }

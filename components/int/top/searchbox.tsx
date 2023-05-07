@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react'
 import styles from '../../../styles/comp/searchbox.module.css'
 
 type props={
-    searchEngine:String
+    searchEngine:String,
+    changeSearchEngine:Function
 }
 
 //検索ボックス
@@ -80,10 +81,10 @@ export default function searchbox(props:props){
     return (
         <div id={styles.topArea}>
             <form onSubmit={submitEve} id={styles.box}>
-                <button type='button'>
+                <button type='button' onClick={()=>props.changeSearchEngine()}>
                     <img src={`/searchEngine/${se}.ico`} alt="" id={styles.sefaivcon} />
                 </button>
-                <input type="text" id={styles.form} placeholder={`ヒント: ${tipsArr[Math.floor(Math.random()*tipsArr.length)]}`} value={search} onChange={handleChange} autoComplete="off"/>
+                <input type="search" id={styles.form} placeholder={`ヒント: ${tipsArr[Math.floor(Math.random()*tipsArr.length)]}`} value={search} onChange={handleChange} autoComplete="off"/>
                 <button type="submit">
                     <img src="int/search.svg" alt="検索" />
                 </button>
