@@ -7,6 +7,28 @@ type setPropsType={
 }
 
 export default function Settings(props:setPropsType){
+    const sideBarInfo=[
+        {
+            title:"top",
+            name:"トップ"
+        },{
+            title:"theme",
+            name:"テーマ"
+        },{
+            title:"search",
+            name:"検索"
+        },{
+            title:"weather",
+            name:"天気"
+        },{
+            title:"news",
+            name:"ニュース"
+        },{
+            title:"mySite",
+            name:"マイサイト"
+        }
+    ]
+
     return (
         <div style={{display: props.state==undefined? "none":"flex"}} id={styles.backShadow}>
             <div id={styles.settingWindow}>
@@ -15,21 +37,20 @@ export default function Settings(props:setPropsType){
                         <p>設定</p>
                     </div>
                     <div id={styles.applybuttonArea}>
-                        <input type="button" value="キャンセル" id={styles.cancelB} onClick={()=>{props.changeSetState(undefined)}}/>
-                        <input type="button" value="適用" id={styles.applyB}/>
+                        <input type="button" value="×" id={styles.cancelB} onClick={()=>{props.changeSetState(undefined)}}/>
+                        <input type="button" value="✓" id={styles.applyB}/>
                     </div>
                 </div>
                 <div id={styles.body}>
                     <div id={styles.sideBar}>
-                        <OneSidebarTitle title="top" nowSetState={props.state}>トップ</OneSidebarTitle>
-                        <OneSidebarTitle title="theme" nowSetState={props.state}>テーマ</OneSidebarTitle>
-                        <OneSidebarTitle title="search" nowSetState={props.state}>検索</OneSidebarTitle>
-                        <OneSidebarTitle title="weather" nowSetState={props.state}>天気</OneSidebarTitle>
-                        <OneSidebarTitle title="news" nowSetState={props.state}>ニュース</OneSidebarTitle>
-                        <OneSidebarTitle title="mySite" nowSetState={props.state}>マイサイト</OneSidebarTitle>
+                        {
+                            sideBarInfo.map((item,index)=>{
+                                return <OneSidebarTitle key={index} title={item.title} nowSetState={props.state} onClick={()=>{props.changeSetState(item.title)}}>{item.name}</OneSidebarTitle>
+                            })
+                        }
                     </div>
                     <div id={styles.setDisplay}>
-                        <OneSettingPage title="top" nowSetState={props.state}>トップ</OneSettingPage>
+                        <OneSettingPage title="top" nowSetState={props.state}>ようこそこちらはトップページです。</OneSettingPage>
                         <OneSettingPage title="theme" nowSetState={props.state}>テーマ</OneSettingPage>
                         <OneSettingPage title="search" nowSetState={props.state}>検索</OneSettingPage>
                         <OneSettingPage title="weather" nowSetState={props.state}>天気</OneSettingPage>
@@ -45,11 +66,12 @@ export default function Settings(props:setPropsType){
 type ostPropsType={
     children:ReactNode,
     title:String,
-    nowSetState:String|undefined
+    nowSetState:String|undefined,
+    onClick:Function
 }
 function OneSidebarTitle(props:ostPropsType){
     return (
-        <p className={`${props.title==props.nowSetState? styles.nowSelect:styles.noneSelect}`}>{props.children}</p>
+        <p className={`${props.title==props.nowSetState? styles.nowSelect:styles.noneSelect} ${styles.sidebarTitle}`} onClick={()=>{props.onClick()}}>{props.children}</p>
     )
 }
 
