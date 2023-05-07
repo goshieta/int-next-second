@@ -13,58 +13,66 @@ export default function Home() {
   //設定ファイルを読み込み
   //デフォルトのJson
   const defaultJson={
-    searchEngine:"google",
     theme:{
       widgetsBack:["rgba(255, 255, 255, 0.8)","rgba(255, 255, 255, 0.8)"],
       middleBack:["rgba(255, 255, 255, 0)","rgba(255, 255, 255, 0)"]
     },
-    weatherPoint:"340010",
-    mySite:[{
-      link:"https://maps.google.com",
-      imgLink:"https://www.google.com/images/branding/product/ico/maps15_bnuw3a_32dp.ico",
-      title:"Google map"
-    },{
-      link:"https://amazon.co.jp",
-      imgLink:"https://upload.wikimedia.org/wikipedia/commons/d/de/Amazon_icon.png",
-      title:"amazon"
-    },{
-      link:"https://youtube.com",
-      imgLink:"https://play-lh.googleusercontent.com/lMoItBgdPPVDJsNOVtP26EKHePkwBg-PkuY9NOrc-fumRtTFP4XhpUNk_22syN4Datc=s96",
-      title:"Youtube"
-    },{
-      link:"https://drive.google.com/drive/my-drive",
-      imgLink:"https://ssl.gstatic.com/images/branding/product/1x/drive_2020q4_32dp.png",
-      title:"Google Drive"
-    },{
-      link:"https://www.office.com/",
-      imgLink:"https://res.cdn.office.net/officehub/images/content/images/favicon_m365-67350a08e8.ico",
-      title:"Microsoft 365"
-    },{
-      link:"https://www.deepl.com/ja/translator",
-      imgLink:"https://static.deepl.com/img/logo/DeepL_Logo_darkBlue_v2.svg",
-      title:"DeepL翻訳"
-    },{
-      link:"https://www.jtb.co.jp/",
-      imgLink:"https://www.jtb.co.jp/smartphone/images/icon180.png",
-      title:"JTB"
-    },{
-      link:"https://mail.google.com/",
-      imgLink:"https://ssl.gstatic.com/ui/v1/icons/mail/rfr/gmail.ico",
-      title:"Gmail"
-    },{
-      link:"https://chat.openai.com/",
-      imgLink:"https://chat.openai.com/apple-touch-icon.png",
-      title:"ChatGPT"
-    },{
-      link:"https://www.canva.com/",
-      imgLink:"https://static.canva.com/static/images/favicon-1.ico",
-      title:"Canva"
-    },{
-      link:"https://tocaly.com/",
-      imgLink:"https://marketplacecontent.zoom.us/%2FM6sl8JOCTmqokExRFYODKg%2F7Rv0GMlZQhOf--R91hiA0w%2Fapp%2FhHuWlu1ZQymGxK_iQ1vslw%2FmdQUUL7PTJKlikT4bVn__Q.png",
-      title:"Tocaly"
-    }],
-    newsSrc:[["nikkei","news"],["yomiuri","national"],["yomiuri","politics"],["yomiuri","world"],["yomiuri","sports"],["trafficnews","top"]]
+    search:{
+      engine:"google"
+    },
+    weather:{
+      point:"340010"
+    },
+    news:{
+      src:[["nikkei","news"],["yomiuri","national"],["yomiuri","politics"],["yomiuri","world"],["yomiuri","sports"],["trafficnews","top"]]
+    },
+    mySite:{
+      array:[{
+        link:"https://maps.google.com",
+        imgLink:"https://www.google.com/images/branding/product/ico/maps15_bnuw3a_32dp.ico",
+        title:"Google map"
+      },{
+        link:"https://amazon.co.jp",
+        imgLink:"https://upload.wikimedia.org/wikipedia/commons/d/de/Amazon_icon.png",
+        title:"amazon"
+      },{
+        link:"https://youtube.com",
+        imgLink:"https://play-lh.googleusercontent.com/lMoItBgdPPVDJsNOVtP26EKHePkwBg-PkuY9NOrc-fumRtTFP4XhpUNk_22syN4Datc=s96",
+        title:"Youtube"
+      },{
+        link:"https://drive.google.com/drive/my-drive",
+        imgLink:"https://ssl.gstatic.com/images/branding/product/1x/drive_2020q4_32dp.png",
+        title:"Google Drive"
+      },{
+        link:"https://www.office.com/",
+        imgLink:"https://res.cdn.office.net/officehub/images/content/images/favicon_m365-67350a08e8.ico",
+        title:"Microsoft 365"
+      },{
+        link:"https://www.deepl.com/ja/translator",
+        imgLink:"https://static.deepl.com/img/logo/DeepL_Logo_darkBlue_v2.svg",
+        title:"DeepL翻訳"
+      },{
+        link:"https://www.jtb.co.jp/",
+        imgLink:"https://www.jtb.co.jp/smartphone/images/icon180.png",
+        title:"JTB"
+      },{
+        link:"https://mail.google.com/",
+        imgLink:"https://ssl.gstatic.com/ui/v1/icons/mail/rfr/gmail.ico",
+        title:"Gmail"
+      },{
+        link:"https://chat.openai.com/",
+        imgLink:"https://chat.openai.com/apple-touch-icon.png",
+        title:"ChatGPT"
+      },{
+        link:"https://www.canva.com/",
+        imgLink:"https://static.canva.com/static/images/favicon-1.ico",
+        title:"Canva"
+      },{
+        link:"https://tocaly.com/",
+        imgLink:"https://marketplacecontent.zoom.us/%2FM6sl8JOCTmqokExRFYODKg%2F7Rv0GMlZQhOf--R91hiA0w%2Fapp%2FhHuWlu1ZQymGxK_iQ1vslw%2FmdQUUL7PTJKlikT4bVn__Q.png",
+        title:"Tocaly"
+      }]
+    }
   }
   const [settings,setSettings]=useState(defaultJson)
   useEffect(()=>{
@@ -91,7 +99,7 @@ export default function Home() {
             <h1>峡緑</h1>
           </div>
         </div>
-        <SearchBox searchEngine={settings.searchEngine} changeSearchEngine={()=>{setsettState("search")}}></SearchBox>
+        <SearchBox searchEngine={settings.search.engine} changeSearchEngine={()=>{setsettState("search")}}></SearchBox>
         <div id={styles.buttonArea}>
           <button onClick={()=>{setsettState("top")}}>
             <img src="/icon/settings.svg" alt="設定" />
@@ -107,16 +115,16 @@ export default function Home() {
       <div id={styles.bottom}>
         <WidArea>
           <Clock theme={settings.theme}></Clock>
-          <Weather theme={settings.theme} point={settings.weatherPoint} weatherSet={()=>{setsettState('weather')}}></Weather>
+          <Weather theme={settings.theme} point={settings.weather.point} weatherSet={()=>{setsettState('weather')}}></Weather>
         </WidArea>
-        <Middle back={settings.theme.middleBack} mySite={settings.mySite}></Middle>
+        <Middle back={settings.theme.middleBack} mySite={settings.mySite.array}></Middle>
         <WidArea>
           <Trend theme={settings.theme}></Trend>
-          <News theme={settings.theme} src={settings.newsSrc}></News>
+          <News theme={settings.theme} src={settings.news.src}></News>
         </WidArea>
       </div>
       {/*設定の記述*/}
-      <Settings state={settState} changeSetState={(newState)=>{setsettState(newState)}}></Settings>
+      <Settings state={settState} changeSetState={(newState)=>{setsettState(newState)}} settingJson={settings}></Settings>
     </div>
   )
 }

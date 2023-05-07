@@ -3,7 +3,8 @@ import styles from "../../../styles/comp/setting.module.css"
 
 type setPropsType={
     state:String|undefined,
-    changeSetState:(newState:String|undefined)=>void
+    changeSetState:(newState:String|undefined)=>void,
+    settingJson:Object
 }
 
 export default function Settings(props:setPropsType){
@@ -50,7 +51,16 @@ export default function Settings(props:setPropsType){
                         }
                     </div>
                     <div id={styles.setDisplay}>
-                        <OneSettingPage title="top" nowSetState={props.state}>ようこそこちらはトップページです。</OneSettingPage>
+                        <OneSettingPage title="top" nowSetState={props.state}>
+                            <h3>設定へようこそ</h3>
+                            <p>カスタマイズ性の高さは峡緑（きょうりょく）の特徴の一つです</p>
+                            <br />
+                            <div id={styles.topDesc}>
+                                <p>設定の仕方がわからない場合は<a href="">設定のヘルプ</a>へ</p>
+                                <p>このような設定を追加してほしいなどの要望は<a href="">報告・提案</a>へ</p>
+                                <p>右のサイドバーから項目を選んであなただけののポータルサイトを作りましょう！</p>
+                            </div>
+                        </OneSettingPage>
                         <OneSettingPage title="theme" nowSetState={props.state}>テーマ</OneSettingPage>
                         <OneSettingPage title="search" nowSetState={props.state}>検索</OneSettingPage>
                         <OneSettingPage title="weather" nowSetState={props.state}>天気</OneSettingPage>
