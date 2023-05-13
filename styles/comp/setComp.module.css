@@ -1,0 +1,45 @@
+.oneRadioButton {
+  margin: 10px 0;
+  display: block;
+  padding-left: 30px;
+  position: relative;
+  line-height: 25px;
+}
+.oneRadioButton::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: solid 2px gray;
+  top: 4px;
+  left: 0px;
+}
+.oneRadioButton::after {
+  content: "";
+  position: absolute;
+  display: block;
+  visibility: hidden;
+  background-color: rgb(0, 255, 110);
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  top: 8px;
+  left: 4px;
+}
+@keyframes radioButtonAnime {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.radioButtonInputOne:checked + .oneRadioButton::after {
+  visibility: visible;
+  animation: radioButtonAnime 0.2s;
+}
+.radioButtonInputOne:checked + .oneRadioButton::before {
+  border: solid 2px rgb(0, 255, 110);
+}

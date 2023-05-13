@@ -93,7 +93,9 @@
   width: 400px;
 }
 .settingOneTitle {
+  position: relative;
   font-weight: bold;
+  margin-top: 10px;
 }
 
 /*トップ*/
@@ -110,7 +112,6 @@
 
 /*検索*/
 .oneSettingState {
-  background-color: rgb(222, 222, 255);
   border-radius: 5px;
   padding: 10px;
   margin: 5px 0;

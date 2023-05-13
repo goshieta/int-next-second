@@ -1,5 +1,6 @@
 import { ReactNode , useState} from "react"
 import styles from "../../../styles/comp/setting.module.css"
+import { SettingsRadios } from "./settingComp"
 
 type setPropsType={
     state:String|undefined,
@@ -54,7 +55,37 @@ export default function Settings(props:setPropsType){
 
     const [settingJson,setSettingJson]=useState(props.settingJson)
 
-    const searchEngineList=["amazon","google","yahoo","bing","duckduckgo","ask","baidu","ecosia","wolframalpha","youtube"]
+    const searchEngineList=[{
+        name:"Google",
+        value:"google"
+    },{
+        name:"Bing",
+        value:"bing"
+    },{
+        name:"Yahoo",
+        value:"yahoo"
+    },{
+        name:"DuckDuckGo",
+        value:"duckduckgo"
+    },{
+        name:"Ecosia",
+        value:"ecosia"
+    },{
+        name:"Baidu",
+        value:"baidu"
+    },{
+        name:"Ask",
+        value:"ask"
+    },{
+        name:"Amazon",
+        value:"amazon"
+    },{
+        name:"Wolframalpha",
+        value:"wolframalpha"
+    },{
+        name:"YouTube",
+        value:"youtube"
+    }]
 
     return (
         <div style={{display: props.state==undefined? "none":"flex"}} id={styles.backShadow}>
@@ -92,21 +123,7 @@ export default function Settings(props:setPropsType){
                             <h3>検索の設定</h3>
                             <div className={styles.oneSettingState}>
                                 <SettingOneTitle>検索エンジン</SettingOneTitle>
-                                <form action="">
-                                    {
-                                        //検索エンジンを選択するラジオボタンを作成
-                                        searchEngineList.map((item,index)=>{
-                                            return <div key={index}>
-                                                <input type="radio" name="searchEngine" value={item} checked={()=>{
-                                                    let newSettingJson=settingJson
-                                                    newSettingJson.search.engine=item
-                                                    setSettingJson(newSettingJson)
-                                                    }} />
-                                                <label>{item}</label>
-                                            </div>
-                                        })
-                                    }
-                                </form>
+                                <SettingsRadios radioSelect={searchEngineList} onChange={(nowSel:String)=>{console.log(nowSel)}} allBtName="searchEngine"></SettingsRadios>
                             </div>
                         </OneSettingPage>
                         <OneSettingPage title="weather" nowSetState={props.state}>天気</OneSettingPage>
