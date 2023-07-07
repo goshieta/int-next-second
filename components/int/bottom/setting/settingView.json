@@ -1,0 +1,84 @@
+[
+  {
+    "title":"top",
+    "name":"トップ",
+    "h3Title":"設定へようこそ",
+    "body":[
+      {
+        "title":"none",
+        "target":"none",
+        "type":"html",
+        "value":"<p>カスタマイズ性の高さは峡緑（きょうりょく）の特徴の一つです</p><br /><div id={styles.topDesc}><p>設定の仕方がわからない場合は<a href=''>設定のヘルプ</a>へ</p><p>このような設定を追加してほしいなどの要望は<a href=''>報告・提案</a>へ</p><p>右のサイドバーから項目を選んであなただけののポータルサイトを作りましょう！</p></div>"
+      }
+    ]
+  },{
+    "title":"theme",
+    "name":"テーマ",
+    "h3Title":"テーマ"
+  },{
+    "title":"search",
+    "name":"検索",
+    "h3Title":"検索の設定",
+    "body":[
+      {
+        "title":"検索エンジン",
+        "type":"radio",
+        "target":"search.engine",
+        "value":[
+          {
+            "name": "Google",
+            "value": "google"
+          },
+          {
+            "name": "Bing",
+            "value": "bing"
+          },
+          {
+            "name": "Yahoo",
+            "value": "yahoo"
+          },
+          {
+            "name": "DuckDuckGo",
+            "value": "duckduckgo"
+          },
+          {
+            "name": "Ecosia",
+            "value": "ecosia"
+          },
+          {
+            "name": "Baidu",
+            "value": "baidu"
+          },
+          {
+            "name": "Ask",
+            "value": "ask"
+          },
+          {
+            "name": "Amazon",
+            "value": "amazon"
+          },
+          {
+            "name": "Wolframalpha",
+            "value": "wolframalpha"
+          },
+          {
+            "name": "YouTube",
+            "value": "youtube"
+          }
+        ]
+      }
+    ]
+  },{
+    "title":"weather",
+    "name":"天気",
+    "h3Title":"天気の設定"
+  },{
+    "title":"news",
+    "name":"ニュース",
+    "h3Title":"ニュースの設定"
+  },{
+    "title":"mySite",
+    "name":"マイサイト",
+    "h3Title":"マイサイトの設定"
+  }
+]

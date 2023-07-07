@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 import WidArea from '@/components/int/bottom/widArea'
 import Middle from '@/components/int/bottom/middle'
 import { Clock, News, Trend, Weather } from '@/components/int/bottom/allWid'
-import Settings from '@/components/int/bottom/settings'
+import Settings from '@/components/int/bottom/setting/settings'
 
 
 export default function Home() {

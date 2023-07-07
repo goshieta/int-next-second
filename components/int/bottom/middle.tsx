@@ -23,7 +23,7 @@ export default function Middle(props:middleType){
                         let returnElem:ReactNode[]=[]
                         for(let i=0;i<4-props.mySite.length%4;i++){
                             returnElem.push(
-                                <a className={styles.damyContent}></a>
+                                <a className={styles.damyContent} key={`damyContant_${i}`}></a>
                             )
                         }
                         return <>{returnElem.map((oe)=>{return oe})}</>
