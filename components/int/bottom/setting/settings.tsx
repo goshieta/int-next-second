@@ -101,7 +101,6 @@ export default function Settings(props: setPropsType) {
             })}
           </div>
           <div id={styles.setDisplay}>
-            {/*この中をすべてsettingView.jsonとして作成する。 */}
             {settingPageJson.map((onePage, index) => {
               return (
                 <OneSettingPage
@@ -125,8 +124,20 @@ export default function Settings(props: setPropsType) {
                       pageOnePara.type == "html" &&
                       typeof pageOnePara.value == "string"
                     ) {
-                      let test = parse("<p>Google!</p>", options);
                       body = parse(pageOnePara.value, options);
+                    } else if (
+                      pageOnePara.type == "radio" &&
+                      typeof pageOnePara.value == "object"
+                    ) {
+                      body = (
+                        <SettingsRadios
+                          radioSelect={pageOnePara.value}
+                          onChange={(nowSel: String) => {
+                            console.log(nowSel);
+                          }}
+                          allBtName={pageOnePara.title}
+                        ></SettingsRadios>
+                      );
                     }
 
                     renderJSX.push(paratitle);
@@ -136,48 +147,6 @@ export default function Settings(props: setPropsType) {
                 </OneSettingPage>
               );
             })}
-            {/*<OneSettingPage title="top" nowSetState={props.state}>
-              <h3>設定へようこそ</h3>
-              <p>カスタマイズ性の高さは峡緑（きょうりょく）の特徴の一つです</p>
-              <br />
-              <div id={styles.topDesc}>
-                <p>
-                  設定の仕方がわからない場合は<a href="">設定のヘルプ</a>へ
-                </p>
-                <p>
-                  このような設定を追加してほしいなどの要望は
-                  <a href="">報告・提案</a>へ
-                </p>
-                <p>
-                  右のサイドバーから項目を選んであなただけののポータルサイトを作りましょう！
-                </p>
-              </div>
-            </OneSettingPage>
-            <OneSettingPage title="theme" nowSetState={props.state}>
-              テーマ
-            </OneSettingPage>
-            <OneSettingPage title="search" nowSetState={props.state}>
-              <h3>検索の設定</h3>
-              <div className={styles.oneSettingState}>
-                <SettingOneTitle>検索エンジン</SettingOneTitle>
-                <SettingsRadios
-                  radioSelect={searchEngineList}
-                  onChange={(nowSel: String) => {
-                    console.log(nowSel);
-                  }}
-                  allBtName="searchEngine"
-                ></SettingsRadios>
-              </div>
-            </OneSettingPage>
-            <OneSettingPage title="weather" nowSetState={props.state}>
-              天気
-            </OneSettingPage>
-            <OneSettingPage title="news" nowSetState={props.state}>
-              ニュース
-            </OneSettingPage>
-            <OneSettingPage title="mySite" nowSetState={props.state}>
-              マイサイト
-            </OneSettingPage>*/}
           </div>
         </div>
       </div>
