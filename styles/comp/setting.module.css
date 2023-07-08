@@ -16,6 +16,7 @@
   border-radius: 5px;
   padding: 10px;
   animation: windowShowAnimation 0.2s;
+  height: 60%;
 }
 @keyframes windowShowAnimation {
   0% {

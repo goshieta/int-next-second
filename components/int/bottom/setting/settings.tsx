@@ -8,31 +8,34 @@ import parse, {
   Element,
   HTMLReactParserOptions,
 } from "html-react-parser";
+import SettingReact from "./settingReact";
 
 type setPropsType = {
   state: String | undefined;
   changeSetState: (newState: String | undefined) => void;
-  settingJson: {
-    theme: {
-      widgetsBack: String[];
-      middleBack: String[];
-    };
-    search: {
-      engine: String;
-    };
-    weather: {
-      point: String;
-    };
-    news: {
-      src: String[][];
-    };
-    mySite: {
-      array: {
-        link: String;
-        imgLink: String;
-        title: String;
-      }[];
-    };
+  settingJson: settingJsonType;
+};
+
+export type settingJsonType = {
+  theme: {
+    widgetsBack: String[];
+    middleBack: String[];
+  };
+  search: {
+    engine: String;
+  };
+  weather: {
+    point: String;
+  };
+  news: {
+    src: String[][];
+  };
+  mySite: {
+    array: {
+      link: String;
+      imgLink: String;
+      title: String;
+    }[];
   };
 };
 
@@ -133,7 +136,12 @@ export default function Settings(props: setPropsType) {
                         <SettingsRadios
                           radioSelect={pageOnePara.value}
                           onChange={(nowSel: String) => {
-                            console.log(nowSel);
+                            SettingReact(
+                              settingJson,
+                              setSettingJson,
+                              nowSel,
+                              pageOnePara.target
+                            );
                           }}
                           allBtName={pageOnePara.title}
                         ></SettingsRadios>
