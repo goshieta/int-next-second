@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction } from "react";
 import { settingJsonType } from "./settings";
 
-export default function SettingReact(
+export function SettingPost(
   settingJson: settingJsonType,
   setSettingJson: Dispatch<SetStateAction<settingJsonType>>,
   newValue: String,
@@ -31,4 +31,13 @@ export default function SettingReact(
     };
   });
   setSettingJson(newSettingJson);
+}
+
+export function SettingGet(settingJson: settingJsonType, target: string) {
+  const keys = target.split(".");
+  let nowScoap = JSON.parse(JSON.stringify(settingJson));
+  keys.forEach((oneKey) => {
+    nowScoap = nowScoap[oneKey];
+  });
+  return nowScoap;
 }

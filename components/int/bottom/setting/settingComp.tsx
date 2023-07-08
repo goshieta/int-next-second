@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styles from "../../../../styles/comp/setComp.module.css";
 
 type radioType = {
@@ -7,9 +8,11 @@ type radioType = {
     name: string;
   }[];
   onChange: (nowSe: String) => void;
+  defaultValue: string;
 };
 /*設定用コンポーネントの集まり*/
 export function SettingsRadios(props: radioType) {
+  const [radioValue, setRadioValue] = useState(props.defaultValue);
   return (
     <div>
       {props.radioSelect.map((item, index) => {
@@ -22,8 +25,10 @@ export function SettingsRadios(props: radioType) {
               value={item.value}
               onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
                 props.onChange(event.target.value);
+                setRadioValue(event.target.value);
               }}
               name={`radioButton_${props.allBtName}`}
+              checked={item.value === radioValue}
             />
             <label
               className={styles.oneRadioButton}

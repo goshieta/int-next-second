@@ -5,7 +5,9 @@ import { useEffect, useState } from "react";
 import WidArea from "@/components/int/bottom/widArea";
 import Middle from "@/components/int/bottom/middle";
 import { Clock, News, Trend, Weather } from "@/components/int/bottom/allWid";
-import Settings from "@/components/int/bottom/setting/settings";
+import Settings, {
+  settingJsonType,
+} from "@/components/int/bottom/setting/settings";
 
 export default function Home() {
   //設定ファイルを読み込み
@@ -98,7 +100,7 @@ export default function Home() {
       ],
     },
   };
-  const [settings, setSettings] = useState(defaultJson);
+  const [settings, setSettings] = useState<settingJsonType>(defaultJson);
   useEffect(() => {
     if (localStorage.getItem("settings") == null)
       localStorage.setItem("settings", JSON.stringify(defaultJson));
@@ -177,6 +179,9 @@ export default function Home() {
         state={settState}
         changeSetState={(newState) => {
           setsettState(newState);
+        }}
+        changeSetting={(newSetting) => {
+          setSettings(newSetting);
         }}
         settingJson={settings}
       ></Settings>

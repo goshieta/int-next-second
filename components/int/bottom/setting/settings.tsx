@@ -8,33 +8,34 @@ import parse, {
   Element,
   HTMLReactParserOptions,
 } from "html-react-parser";
-import SettingReact from "./settingReact";
+import { SettingGet, SettingPost } from "./settingReact";
 
 type setPropsType = {
   state: String | undefined;
   changeSetState: (newState: String | undefined) => void;
+  changeSetting: (newSetting: settingJsonType) => void;
   settingJson: settingJsonType;
 };
 
 export type settingJsonType = {
   theme: {
-    widgetsBack: String[];
-    middleBack: String[];
+    widgetsBack: string[];
+    middleBack: string[];
   };
   search: {
-    engine: String;
+    engine: string;
   };
   weather: {
-    point: String;
+    point: string;
   };
   news: {
-    src: String[][];
+    src: string[][];
   };
   mySite: {
     array: {
-      link: String;
-      imgLink: String;
-      title: String;
+      link: string;
+      imgLink: string;
+      title: string;
     }[];
   };
 };
@@ -83,7 +84,15 @@ export default function Settings(props: setPropsType) {
                 props.changeSetState(undefined);
               }}
             />
-            <input type="button" value="決定" id={styles.applyB} />
+            <input
+              type="button"
+              value="決定"
+              id={styles.applyB}
+              onClick={() => {
+                props.changeSetting(settingJson);
+                props.changeSetState(undefined);
+              }}
+            />
           </div>
         </div>
         <div id={styles.body}>
@@ -127,16 +136,18 @@ export default function Settings(props: setPropsType) {
                       pageOnePara.type == "html" &&
                       typeof pageOnePara.value == "string"
                     ) {
+                      //プレーンなHTML
                       body = parse(pageOnePara.value, options);
                     } else if (
                       pageOnePara.type == "radio" &&
                       typeof pageOnePara.value == "object"
                     ) {
+                      //ラジオボタン
                       body = (
                         <SettingsRadios
                           radioSelect={pageOnePara.value}
                           onChange={(nowSel: String) => {
-                            SettingReact(
+                            SettingPost(
                               settingJson,
                               setSettingJson,
                               nowSel,
@@ -144,13 +155,21 @@ export default function Settings(props: setPropsType) {
                             );
                           }}
                           allBtName={pageOnePara.title}
+                          defaultValue={SettingGet(
+                            settingJson,
+                            pageOnePara.target
+                          )}
                         ></SettingsRadios>
                       );
                     }
 
                     renderJSX.push(paratitle);
                     renderJSX.push(body);
-                    return renderJSX;
+                    return (
+                      <div key={`oneSettingPage_${pageOnePara.title}`}>
+                        {renderJSX}
+                      </div>
+                    );
                   })}
                 </OneSettingPage>
               );
