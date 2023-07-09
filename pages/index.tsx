@@ -8,98 +8,10 @@ import { Clock, News, Trend, Weather } from "@/components/int/bottom/allWid";
 import Settings, {
   settingJsonType,
 } from "@/components/int/bottom/setting/settings";
+import defaultJson from "@/components/int/bottom/setting/default.json";
 
 export default function Home() {
   //設定ファイルを読み込み
-  //デフォルトのJson
-  const defaultJson = {
-    theme: {
-      widgetsBack: ["rgba(255, 255, 255, 0.8)", "rgba(255, 255, 255, 0.8)"],
-      middleBack: ["rgba(255, 255, 255, 0)", "rgba(255, 255, 255, 0)"],
-    },
-    search: {
-      engine: "google",
-    },
-    weather: {
-      point: "340010",
-    },
-    news: {
-      src: [
-        ["nikkei", "news"],
-        ["yomiuri", "national"],
-        ["yomiuri", "politics"],
-        ["yomiuri", "world"],
-        ["yomiuri", "sports"],
-        ["trafficnews", "top"],
-      ],
-    },
-    mySite: {
-      array: [
-        {
-          link: "https://maps.google.com",
-          imgLink:
-            "https://www.google.com/images/branding/product/ico/maps15_bnuw3a_32dp.ico",
-          title: "Google map",
-        },
-        {
-          link: "https://amazon.co.jp",
-          imgLink:
-            "https://upload.wikimedia.org/wikipedia/commons/d/de/Amazon_icon.png",
-          title: "amazon",
-        },
-        {
-          link: "https://youtube.com",
-          imgLink:
-            "https://play-lh.googleusercontent.com/lMoItBgdPPVDJsNOVtP26EKHePkwBg-PkuY9NOrc-fumRtTFP4XhpUNk_22syN4Datc=s96",
-          title: "Youtube",
-        },
-        {
-          link: "https://drive.google.com/drive/my-drive",
-          imgLink:
-            "https://ssl.gstatic.com/images/branding/product/1x/drive_2020q4_32dp.png",
-          title: "Google Drive",
-        },
-        {
-          link: "https://www.office.com/",
-          imgLink:
-            "https://res.cdn.office.net/officehub/images/content/images/favicon_m365-67350a08e8.ico",
-          title: "Microsoft 365",
-        },
-        {
-          link: "https://www.deepl.com/ja/translator",
-          imgLink:
-            "https://static.deepl.com/img/logo/DeepL_Logo_darkBlue_v2.svg",
-          title: "DeepL翻訳",
-        },
-        {
-          link: "https://www.jtb.co.jp/",
-          imgLink: "https://www.jtb.co.jp/smartphone/images/icon180.png",
-          title: "JTB",
-        },
-        {
-          link: "https://mail.google.com/",
-          imgLink: "https://ssl.gstatic.com/ui/v1/icons/mail/rfr/gmail.ico",
-          title: "Gmail",
-        },
-        {
-          link: "https://chat.openai.com/",
-          imgLink: "https://chat.openai.com/apple-touch-icon.png",
-          title: "ChatGPT",
-        },
-        {
-          link: "https://www.canva.com/",
-          imgLink: "https://static.canva.com/static/images/favicon-1.ico",
-          title: "Canva",
-        },
-        {
-          link: "https://tocaly.com/",
-          imgLink:
-            "https://marketplacecontent.zoom.us/%2FM6sl8JOCTmqokExRFYODKg%2F7Rv0GMlZQhOf--R91hiA0w%2Fapp%2FhHuWlu1ZQymGxK_iQ1vslw%2FmdQUUL7PTJKlikT4bVn__Q.png",
-          title: "Tocaly",
-        },
-      ],
-    },
-  };
   const [settings, setSettings] = useState<settingJsonType>(defaultJson);
   useEffect(() => {
     if (localStorage.getItem("settings") == null)
